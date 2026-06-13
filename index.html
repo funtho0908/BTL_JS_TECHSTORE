@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone - Cửa Hàng Đồ Công Nghệ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ========================================== HEADER ========================================== -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <span class="header-announcement">
+                        <i class="fas fa-truck"></i> Miễn phí vận chuyển cho đơn từ 500K
+                    </span>
+                    <div class="header-top-links">
+                        <a href="#" id="supportLink"><i class="fas fa-headset"></i> Hỗ trợ</a>
+                        <a href="#" id="orderTrackLink"><i class="fas fa-truck-fast"></i> Theo dõi đơn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="header-main-content">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a href="#" class="logo" id="logoLink">
+                        <i class="fas fa-bolt"></i> Tech<span>Zone</span>
+                    </a>
+                    <div class="search-bar" id="searchBar">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." autocomplete="off">
+                        <button id="searchBtn" aria-label="Tìm kiếm">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="header-action-btn" id="wishlistBtn" aria-label="Yêu thích">
+                            <i class="fas fa-heart"></i>
+                            <span class="badge" id="wishlistBadge">0</span>
+                        </button>
+                        <button class="header-action-btn" id="cartBtn" aria-label="Giỏ hàng">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge" id="cartBadge">0</span>
+                        </button>
+                        <div class="user-menu" id="userMenu">
+                            <button class="header-action-btn" id="userBtn" aria-label="Tài khoản">
+                                <i class="fas fa-user"></i>
+                            </button>
+                            <div class="user-dropdown" id="userDropdown">
+                                <div class="user-dropdown-header" id="userDropdownHeader">
+                                    <span class="user-greeting">Xin chào!</span>
+                                    <div class="user-auth-links">
+                                        <button class="btn-link" id="showLoginModalBtn">Đăng nhập</button>
+                                        <span>/</span>
+                                        <button class="btn-link" id="showRegisterModalBtn">Đăng ký</button>
+                                    </div>
+                                </div>
+                                <div class="user-dropdown-logged" id="userDropdownLogged" style="display:none;">
+                                    <div class="user-info">
+                                        <i class="fas fa-user-circle"></i>
+                                        <div>
+                                            <span class="user-name" id="displayUsername">User</span>
+                                            <span class="user-email" id="displayUseremail"></span>
+                                        </div>
+                                    </div>
+                                    <div class="user-dropdown-links">
+                                        <a href="#" id="myOrdersLink"><i class="fas fa-box"></i> Đơn hàng của tôi</a>
+                                        <a href="#" id="myProfileLink"><i class="fas fa-id-card"></i> Hồ sơ</a>
+                                        <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="header-nav" id="headerNav">
+            <div class="container">
+                <ul class="nav-list" id="navList">
+                    <li><a href="#" class="nav-link active" data-category="all">Tất cả</a></li>
+                    <li><a href="#" class="nav-link" data-category="phone">Điện thoại</a></li>
+                    <li><a href="#" class="nav-link" data-category="laptop">Laptop</a></li>
+                    <li><a href="#" class="nav-link" data-category="tablet">Tablet</a></li>
+                    <li><a href="#" class="nav-link" data-category="accessory">Phụ kiện</a></li>
+                    <li><a href="#" class="nav-link" data-category="smartwatch">Đồng hồ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========================================== MOBILE SIDEBAR ========================================== -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="mobile-sidebar-header">
+            <a href="#" class="logo"><i class="fas fa-bolt"></i> Tech<span>Zone</span></a>
+            <button class="mobile-sidebar-close" id="mobileSidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-sidebar-user" id="mobileSidebarUser">
+            <div class="mobile-user-guest" id="mobileUserGuest">
+                <i class="fas fa-user-circle"></i>
+                <span>Khách</span>
+                <div>
+                    <button class="btn-sm" id="mobileShowLogin">Đăng nhập</button>
+                    <button class="btn-sm btn-outline" id="mobileShowRegister">Đăng ký</button>
+                </div>
+            </div>
+            <div class="mobile-user-logged" id="mobileUserLogged" style="display:none;">
+                <i class="fas fa-user-circle"></i>
+                <div>
+                    <span id="mobileDisplayUsername">User</span>
+                    <span id="mobileDisplayEmail"></span>
+                </div>
+                <button id="mobileLogoutBtn"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </div>
+        <ul class="mobile-nav-list" id="mobileNavList">
+            <li><a href="#" class="nav-link" data-category="all">Tất cả sản phẩm</a></li>
+            <li><a href="#" class="nav-link" data-category="phone">Điện thoại</a></li>
+            <li><a href="#" class="nav-link" data-category="laptop">Laptop</a></li>
+            <li><a href="#" class="nav-link" data-category="tablet">Tablet</a></li>
+            <li><a href="#" class="nav-link" data-category="accessory">Phụ kiện</a></li>
+            <li><a href="#" class="nav-link" data-category="smartwatch">Đồng hồ</a></li>
+        </ul>
+        <div class="mobile-sidebar-footer">
+            <a href="#"><i class="fas fa-truck"></i> Theo dõi đơn hàng</a>
+            <a href="#"><i class="fas fa-headset"></i> Hỗ trợ: 1900 1234</a>
+        </div>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- ========================================== BREADCRUMB ========================================== -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
+                <li><i class="fas fa-chevron-right"></i></li>
+                <li><span id="breadcrumbCurrent">Tất cả sản phẩm</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ========================================== HERO BANNER ========================================== -->
+    <section class="hero" id="heroSection">
+        <div class="container">
+            <div class="hero-slider" id="heroSlider">
+                <div class="hero-slide active">
+                    <div class="hero-content">
+                        <span class="hero-tag">Khuyến mãi lớn</span>
+                        <h1>iPhone 15 Pro Max</h1>
+                        <p>Giảm đến 3 triệu đồng. Chip A17 Pro mạnh mẽ nhất từ trước đến nay.</p>
+                        <div class="hero-price">
+                            <span class="price-old">32.990.000đ</span>
+                            <span class="price-new">29.990.000đ</span>
+                        </div>
+                        <a href="#" class="btn-primary nav-link" data-category="phone">Mua ngay <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500&q=80" alt="iPhone 15 Pro Max">
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <div class="hero-content">
+                        <span class="hero-tag">Laptop Gaming</span>
+                        <h1>MacBook Pro M3</h1>
+                        <p>Hiệu năng vượt trội với chip M3. Tối ưu cho công việc và sáng tạo.</p>
+                        <div class="hero-price">
+                            <span class="price-old">49.990.000đ</span>
+                            <span class="price-new">44.990.000đ</span>
+                        </div>
+                        <a href="#" class="btn-primary nav-link" data-category="laptop">Mua ngay <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80" alt="MacBook Pro">
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <div class="hero-content">
+                        <span class="hero-tag">Tablet Mới</span>
+                        <h1>iPad Pro 2024</h1>
+                        <p>Màn hình Liquid Retina XDR. Hoàn hảo cho thiết kế và giải trí.</p>
+                        <div class="hero-price">
+                            <span class="price-old">27.990.000đ</span>
+                            <span class="price-new">24.990.000đ</span>
+                        </div>
+                        <a href="#" class="btn-primary nav-link" data-category="tablet">Mua ngay <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&q=80" alt="iPad Pro">
+                    </div>
+                </div>
+            </div>
+            <div class="hero-dots" id="heroDots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== FILTER BAR ========================================== -->
+    <section class="filter-section" id="filterSection">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-left">
+                    <span class="filter-label"><i class="fas fa-filter"></i> Lọc:</span>
+                    <div class="filter-chips" id="filterChips">
+                        <button class="filter-chip active" data-filter="all">Tất cả</button>
+                        <button class="filter-chip" data-filter="new">Mới nhất</button>
+                        <button class="filter-chip" data-filter="bestseller">Bán chạy</button>
+                        <button class="filter-chip" data-filter="sale">Giảm giá</button>
+                    </div>
+                </div>
+                <div class="filter-right">
+                    <span class="result-count" id="resultCount">Hiển thị 0 sản phẩm</span>
+                    <div class="sort-wrapper">
+                        <label for="sortSelect">Sắp xếp:</label>
+                        <select id="sortSelect">
+                            <option value="default">Mặc định</option>
+                            <option value="price-asc">Giá: Thấp → Cao</option>
+                            <option value="price-desc">Giá: Cao → Thấp</option>
+                            <option value="name-asc">Tên: A → Z</option>
+                            <option value="name-desc">Tên: Z → A</option>
+                            <option value="rating-desc">Đánh giá cao nhất</option>
+                        </select>
+                    </div>
+                    <div class="view-toggle">
+                        <button class="view-btn active" id="gridViewBtn" aria-label="Lưới"><i class="fas fa-th-large"></i></button>
+                        <button class="view-btn" id="listViewBtn" aria-label="Danh sách"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="price-filter">
+                <label><i class="fas fa-tag"></i> Khoảng giá:</label>
+                <input type="number" id="priceMin" placeholder="Từ (triệu)" min="0" step="1">
+                <span>—</span>
+                <input type="number" id="priceMax" placeholder="Đến (triệu)" min="0" step="1">
+                <button class="btn-sm" id="applyPriceFilter">Áp dụng</button>
+                <button class="btn-sm btn-outline" id="clearPriceFilter">Xóa</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== PRODUCTS SECTION ========================================== -->
+    <main class="main-content">
+        <div class="container">
+            <div class="products-container">
+                <div class="products-header">
+                    <h2 class="section-title" id="sectionTitle">
+                        <i class="fas fa-fire"></i> Tất cả sản phẩm
+                    </h2>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Sản phẩm được render bởi JS -->
+                </div>
+                <div class="no-products" id="noProducts" style="display:none;">
+                    <i class="fas fa-search"></i>
+                    <h3>Không tìm thấy sản phẩm</h3>
+                    <p>Vui lòng thử lại với từ khóa hoặc bộ lọc khác.</p>
+                    <button class="btn-primary" id="resetFiltersBtn">Đặt lại bộ lọc</button>
+                </div>
+                <div class="pagination" id="pagination">
+                    <!-- Phân trang được render bởi JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ========================================== FEATURES SECTION ========================================== -->
+    <section class="features-section" id="featuresSection">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Miễn phí vận chuyển</h3>
+                        <p>Cho đơn hàng từ 500.000đ</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Bảo hành chính hãng</h3>
+                        <p>12 tháng đổi trả dễ dàng</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Thanh toán an toàn</h3>
+                        <p>Visa, Mastercard, COD</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Hỗ trợ 24/7</h3>
+                        <p>Luôn sẵn sàng giúp đỡ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== CART SIDEBAR ========================================== -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-sidebar-header">
+            <h3><i class="fas fa-shopping-cart"></i> Giỏ hàng <span id="cartItemCount">(0)</span></h3>
+            <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-sidebar-body" id="cartBody">
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Giỏ hàng trống</p>
+                <span>Hãy thêm sản phẩm vào giỏ hàng</span>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Các mặt hàng được render bởi JS -->
+            </div>
+        </div>
+        <div class="cart-sidebar-footer" id="cartFooter" style="display:none;">
+            <div class="cart-summary">
+                <div class="cart-summary-row">
+                    <span>Tạm tính:</span>
+                    <span id="cartSubtotal">0đ</span>
+                </div>
+                <div class="cart-summary-row">
+                    <span>Giảm giá:</span>
+                    <span id="cartDiscount" class="text-success">-0đ</span>
+                </div>
+                <div class="cart-summary-row cart-total">
+                    <span>Tổng cộng:</span>
+                    <span id="cartTotal">0đ</span>
+                </div>
+            </div>
+            <div class="cart-coupon">
+                <div class="coupon-input-wrapper">
+                    <input type="text" id="couponInput" placeholder="Nhập mã giảm giá">
+                    <button id="applyCouponBtn">Áp dụng</button>
+                </div>
+                <div class="coupon-message" id="couponMessage"></div>
+                <div class="available-coupons" id="availableCoupons">
+                    <span class="coupon-tag" data-code="TECH10">TECH10</span>
+                    <span class="coupon-tag" data-code="SUMMER15">SUMMER15</span>
+                    <span class="coupon-tag" data-code="NEWUSER">NEWUSER</span>
+                </div>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn">
+                <i class="fas fa-lock"></i> Thanh toán ngay
+            </button>
+            <button class="btn-clear-cart" id="clearCartBtn">
+                <i class="fas fa-trash"></i> Xóa giỏ hàng
+            </button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- ========================================== WISHLIST SIDEBAR ========================================== -->
+    <div class="wishlist-sidebar" id="wishlistSidebar">
+        <div class="wishlist-sidebar-header">
+            <h3><i class="fas fa-heart"></i> Yêu thích <span id="wishlistItemCount">(0)</span></h3>
+            <button class="wishlist-close" id="wishlistClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="wishlist-sidebar-body" id="wishlistBody">
+            <div class="wishlist-empty" id="wishlistEmpty">
+                <i class="fas fa-heart-broken"></i>
+                <p>Danh sách trống</p>
+                <span>Hãy thêm sản phẩm bạn yêu thích</span>
+            </div>
+            <div class="wishlist-items" id="wishlistItems">
+                <!-- Các mặt hàng được render bởi JS -->
+            </div>
+        </div>
+    </div>
+    <div class="wishlist-overlay" id="wishlistOverlay"></div>
+
+    <!-- ========================================== LOGIN MODAL ========================================== -->
+    <div class="modal-overlay" id="loginModalOverlay">
+        <div class="modal" id="loginModal">
+            <button class="modal-close" id="loginModalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <div class="modal-logo"><i class="fas fa-bolt"></i> Tech<span>Zone</span></div>
+                <h2>Đăng nhập</h2>
+                <p>Chào mừng bạn quay trở lại!</p>
+            </div>
+            <form class="modal-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="email@example.com" required>
+                    </div>
+                    <span class="form-error" id="loginEmailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Mật khẩu</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" required>
+                        <button type="button" class="toggle-password" data-target="loginPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="form-error" id="loginPasswordError"></span>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#" class="forgot-link" id="forgotPasswordLink">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn-submit">Đăng nhập</button>
+                <div class="modal-divider"><span>hoặc đăng nhập với</span></div>
+                <div class="social-login">
+                    <button type="button" class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                    <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                </div>
+                <p class="modal-switch">
+                    Chưa có tài khoản? <button type="button" class="btn-link" id="switchToRegister">Đăng ký ngay</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================== REGISTER MODAL ========================================== -->
+    <div class="modal-overlay" id="registerModalOverlay">
+        <div class="modal" id="registerModal">
+            <button class="modal-close" id="registerModalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <div class="modal-logo"><i class="fas fa-bolt"></i> Tech<span>Zone</span></div>
+                <h2>Tạo tài khoản</h2>
+                <p>Đăng ký để nhận nhiều ưu đãi!</p>
+            </div>
+            <form class="modal-form" id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Họ và tên</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerName" placeholder="Nguyễn Văn A" required>
+                    </div>
+                    <span class="form-error" id="registerNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="email@example.com" required>
+                    </div>
+                    <span class="form-error" id="registerEmailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="registerPhone">Số điện thoại</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="registerPhone" placeholder="0912 345 678" required pattern="0[0-9]{9}" maxlength="10">
+                    </div>
+                    <span class="form-error" id="registerPhoneError">Số điện thoại gồm 10 số, bắt đầu bằng số 0</span>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Mật khẩu</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="Ít nhất 8 ký tự, chữ hoa đầu, có ký tự đặc biệt (@$!%*?&)" required minlength="8">
+                        <button type="button" class="toggle-password" data-target="registerPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="form-error" id="registerPasswordError">Mật khẩu tối thiểu 8 ký tự, có chữ hoa đầu và ký tự đặc biệt (@$!%*?&)</span>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Xác nhận mật khẩu</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerConfirmPassword" placeholder="Nhập lại mật khẩu" required>
+                        <button type="button" class="toggle-password" data-target="registerConfirmPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="form-error" id="registerConfirmPasswordError"></span>
+                </div>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <span class="checkmark"></span>
+                    Tôi đồng ý với <a href="#">Điều khoản sử dụng</a> và <a href="#">Chính sách bảo mật</a>
+                </label>
+                <button type="submit" class="btn-submit">Tạo tài khoản</button>
+                <p class="modal-switch">
+                    Đã có tài khoản? <button type="button" class="btn-link" id="switchToLogin">Đăng nhập</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================== PRODUCT DETAIL MODAL ========================================== -->
+    <div class="modal-overlay" id="productModalOverlay">
+        <div class="modal modal-product" id="productModal">
+            <button class="modal-close" id="productModalClose"><i class="fas fa-times"></i></button>
+            <div class="product-modal-content" id="productModalContent">
+                <!-- Chi tiết sản phẩm được render bởi JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== CHECKOUT MODAL ========================================== -->
+    <div class="modal-overlay" id="checkoutModalOverlay">
+        <div class="modal modal-checkout" id="checkoutModal">
+            <button class="modal-close" id="checkoutModalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2><i class="fas fa-truck"></i> Thông tin giao hàng</h2>
+            </div>
+            <form class="modal-form" id="checkoutForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkoutName">Họ và tên</label>
+                        <input type="text" id="checkoutName" placeholder="Nguyễn Văn A" required>
+                        <span class="form-error" id="checkoutNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkoutPhone">Số điện thoại</label>
+                        <input type="tel" id="checkoutPhone" placeholder="0912 345 678" required>
+                        <span class="form-error" id="checkoutPhoneError"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutEmail">Email</label>
+                    <input type="email" id="checkoutEmail" placeholder="email@example.com" required>
+                    <span class="form-error" id="checkoutEmailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutAddress">Địa chỉ giao hàng</label>
+                    <input type="text" id="checkoutAddress" placeholder="123 Đường ABC, Quận 1, TP.HCM" required>
+                    <span class="form-error" id="checkoutAddressError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutNote">Ghi chú (tùy chọn)</label>
+                    <textarea id="checkoutNote" rows="3" placeholder="Ghi chú thêm cho đơn hàng..."></textarea>
+                </div>
+                <div class="checkout-summary">
+                    <h4>Tóm tắt đơn hàng</h4>
+                    <div class="checkout-items" id="checkoutItems">
+                    </div>
+                    <div class="checkout-totals">
+                        <div class="checkout-row"><span>Tạm tính:</span><span id="checkoutSubtotal">0đ</span></div>
+                        <div class="checkout-row"><span>Phí vận chuyển:</span><span id="checkoutShipping">Miễn phí</span></div>
+                        <div class="checkout-row"><span>Mã giảm giá:</span><span id="checkoutCouponUsed">-0đ</span></div>
+                        <div class="checkout-row checkout-grand-total"><span>Tổng cộng:</span><span id="checkoutGrandTotal">0đ</span></div>
+                    </div>
+                </div>
+                <div class="payment-methods">
+                    <h4>Phương thức thanh toán</h4>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cod" checked>
+                            <span class="payment-radio"></span>
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Thanh toán khi nhận hàng (COD)</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="banking">
+                            <span class="payment-radio"></span>
+                            <i class="fas fa-university"></i>
+                            <span>Chuyển khoản ngân hàng</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="vietqr-payment-section" style="display: none; text-align: center; margin: 20px 0; padding: 15px; background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px;">
+                    <h4 style="color: #0f172a; margin-bottom: 10px;"><i class="fa-solid fa-qrcode"></i> Quét Mã VietQR Để Thanh Toán</h4>
+                    
+                    <img id="vietqr-image" src="" alt="Mã VietQR Thanh Toán" style="max-width: 220px; border: 1px solid #e2e8f0; padding: 5px; background: #fff; border-radius: 4px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
+                    
+                    <p id="timer-display" style="margin-top: 10px; font-size: 13px;"></p>
+                    
+                    <div style="margin-top: 15px; text-align: left; font-size: 14px; display: inline-block;">
+                        <p><strong>Ngân hàng:</strong> MB Bank</p>
+                        <p><strong>Số tài khoản:</strong> 0927222007</p>
+                        <p><strong>Chủ tài khoản:</strong> NGUYEN DUC DUY</p>
+                        <p><strong>Số tiền:</strong> <span id="vietqr-amount" style="color: #ef4444; font-weight: bold;">0đ</span></p>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit btn-checkout-submit">
+                    <i class="fas fa-lock"></i> Xác nhận đặt hàng
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================== ORDER SUCCESS MODAL ========================================== -->
+    <div class="modal-overlay" id="orderSuccessModalOverlay">
+        <div class="modal modal-success" id="orderSuccessModal">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Đặt hàng thành công!</h2>
+                <p>Cảm ơn bạn đã đặt hàng tại TechZone. Đơn hàng của bạn đang được xử lý.</p>
+                <div class="order-info">
+                    <p>Mã đơn hàng: <strong id="orderCode">#TZN000001</strong></p>
+                    <p>Chúng tôi sẽ gửi email xác nhận trong giây lát.</p>
+                </div>
+                <button class="btn-primary" id="orderSuccessClose">Tiếp tục mua sắm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== TOAST CONTAINER ========================================== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ========================================== SCROLL TO TOP ========================================== -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Lên đầu trang">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ========================================== FOOTER ========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-bolt"></i> Tech<span>Zone</span>
+                    </div>
+                    <p>Cửa hàng đồ công nghệ hàng đầu Việt Nam. Cam kết 100% sản phẩm chính hãng.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Về TechZone</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hỗ trợ khách hàng</h4>
+                    <ul>
+                        <li><a href="#">Trung tâm trợ giúp</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Phương thức thanh toán</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên hệ</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Nguyễn Huệ, Q.1, TP.HCM</li>
+                        <li><i class="fas fa-phone"></i> 1900 1234</li>
+                        <li><i class="fas fa-envelope"></i> support@techzone.vn</li>
+                        <li><i class="fas fa-clock"></i> Thứ 2 - CN: 8h - 22h</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin khuyến mãi sớm nhất</p>
+                    <form class="footer-newsletter" id="newsletterForm">
+                        <input type="email" id="newsletterEmail" placeholder="Email của bạn" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <div class="footer-badges">
+                        <div class="footer-badge">
+                            <i class="fas fa-shield-halved"></i>
+                            <span>100% Chính hãng</span>
+                        </div>
+                        <div class="footer-badge">
+                            <i class="fas fa-undo"></i>
+                            <span>7 ngày đổi trả</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechZone. Tất cả quyền được bảo lưu.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Điều khoản sử dụng</a>
+                    <a href="#">Chính sách bảo mật</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== SCRIPTS ========================================== -->
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="frontend/js/utils.js"></script>
+    <script src="frontend/js/auth.js"></script>
+    <script src="frontend/js/products.js"></script>
+    <script src="frontend/js/cart.js"></script>
+    <script src="frontend/js/app.js"></script>
+    <script src="frontend/js/chatbot.js"></script>
+    <script>
+        const BANK_ID = "MB";
+        const ACCOUNT_NO = "0927222007";
+        const ACCOUNT_NAME = "NGUYEN DUC DUY";
+        let timerInterval;
+        function listenPaymentChange() {
+            const paymentOptions = document.querySelectorAll('input[name="payment"]');
+            const qrSection = document.getElementById('vietqr-payment-section');
+            const qrImg = document.getElementById('vietqr-image');
+            const qrAmountTxt = document.getElementById('vietqr-amount');
+            paymentOptions.forEach(option => {
+                option.addEventListener('change', (e) => {
+                    if (e.target.value === 'banking') {
+                        const totalText = document.getElementById('checkoutGrandTotal').textContent || '0đ';
+                        const totalAmount = parseInt(totalText.replace(/[^0-9]/g, '')) || 0;
+                        if (qrAmountTxt) qrAmountTxt.textContent = totalAmount.toLocaleString('vi-VN') + ' ₫';
+                        const qrUrl = `https://img.vietqr.io/image/MB-0927222007-compact2.png?amount=${totalAmount}&addInfo=TECHZONE%20THANHTOAN&accountName=${encodeURIComponent(ACCOUNT_NAME)}`;
+                        if (qrSection) qrSection.style.display = 'block';
+                        if (qrImg) {
+                            qrImg.style.opacity = '0.4'; 
+                            qrImg.src = qrUrl;
+                            qrImg.onload = () => {
+                                qrImg.style.opacity = '1';
+                                startTimer(300);
+                            };
+                        }
+                    } else {
+                        // Nếu chọn COD (Thanh toán khi nhận hàng) thì ẩn vùng QR đi và xóa bộ đếm
+                        if (qrSection) qrSection.style.display = 'none';
+                        clearInterval(timerInterval);
+                    }
+                });
+            });
+        }
+        function startTimer(t) {
+            clearInterval(timerInterval);
+            const display = document.getElementById('timer-display');
+            if (!display) return;
+            timerInterval = setInterval(() => {
+                let m = Math.floor(t / 60);
+                let s = t % 60;
+                display.innerText = `Mã QR hết hạn sau: ${m}:${s < 10 ? '0' : ''}${s}`;
+                display.style.color = '#ef4444';
+                display.style.fontWeight = '600';
+
+                if (--t < 0) {
+                    clearInterval(timerInterval);
+                    display.innerText = "Mã QR đã hết hạn. Vui lòng chọn lại phương thức thanh toán để làm mới.";
+                    if (document.getElementById('vietqr-image')) {
+                        document.getElementById('vietqr-image').style.opacity = '0.1'; // Làm mờ mã QR đi khi hết hạn
+                    }
+                }
+            }, 1000);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', () => {
+                    setTimeout(listenPaymentChange, 200);
+                });
+            }
+            setTimeout(listenPaymentChange, 1000);
+        });
+    </script>
+</body>
+</html>
